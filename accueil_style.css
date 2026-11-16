@@ -1,0 +1,410 @@
+
+/* ------------------------------
+   STYLE GENERAL
+------------------------------ */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Georgia, serif;
+    color: #fff5f5;
+
+    background: linear-gradient(135deg,#301447,#482268,#68418F,#9673BD,#C5A9E8
+    );
+
+    background-size: 300% 300%;
+    animation: fondAnime 15s ease infinite;
+}
+
+
+/* ------------------------------
+   ANIMATION DU FOND
+------------------------------ */
+
+@keyframes fondAnime {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+
+/* ------------------------------
+   CONTENU PRINCIPAL
+------------------------------ */
+
+.accueil {
+    position: relative;
+    z-index: 2;
+
+    text-align: center;
+
+    width: 90%;
+    max-width: 650px;
+
+    padding: 50px 35px;
+
+    background: rgba(255, 255, 255, 0.05);
+
+    border: 1px solid rgba(255, 220, 230, 0.2);
+
+    border-radius: 25px;
+
+    backdrop-filter: blur(10px);
+
+    box-shadow:
+        0 10px 50px rgba(0, 0, 0, 0.3);
+
+    animation: apparition 1.5s ease;
+}
+
+
+/* ------------------------------
+   ANIMATION D'APPARITION
+------------------------------ */
+
+@keyframes apparition {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ------------------------------
+   PETIT COEUR
+------------------------------ */
+
+.petit-coeur {
+    font-size: 35px;
+    color: #ffc0f1;
+
+    margin-bottom: 15px;
+
+    animation: battement 2s infinite;
+}
+
+@keyframes battement {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+}
+
+
+/* ------------------------------
+   TITRES
+------------------------------ */
+
+.sous-titre {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+
+    color: #ffc0f1;
+
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(40px, 8vw, 65px);
+    font-weight: normal;
+    line-height: 1.2;
+
+    margin: 0;
+}
+
+h1 span {
+    color: #f0b8c9;
+    font-style: italic;
+}
+
+
+/* ------------------------------
+   SEPARATEUR
+------------------------------ */
+
+.separateur {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 25px 0;
+
+    color: #f0b8c9;
+    font-size: 22px;
+}
+
+.separateur::before,
+.separateur::after {
+    content: "";
+
+    width: 65px;
+    height: 1px;
+
+    background: #d99baa;
+
+    margin: 0 15px;
+}
+
+
+/* ------------------------------
+   MESSAGE
+------------------------------ */
+
+.message {
+    font-size: 17px;
+    line-height: 1.8;
+
+    color: #f5dfe5;
+
+    margin-bottom: 35px;
+}
+
+
+/* ------------------------------
+   BOUTON
+------------------------------ */
+
+.bouton {
+    display: inline-flex;
+    align-items: center;
+    gap: 15px;
+
+    padding: 16px 28px;
+
+    background: #f7b3c5;
+    color: #421521;
+
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+
+    border-radius: 50px;
+
+    transition: all 0.4s ease;
+}
+
+.bouton:hover {
+    background: #fff0f4;
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 5px 25px rgba(255, 190, 210, 0.4);
+}
+
+.fleche {
+    font-size: 20px;
+
+    transition: transform 0.4s ease;
+}
+
+.bouton:hover .fleche {
+    transform: scale(1.4);
+}
+
+
+/* ------------------------------
+   SIGNATURE
+------------------------------ */
+
+.signature {
+    margin-top: 35px;
+
+    font-size: 13px;
+    font-style: italic;
+
+    color: #d9a6b4;
+}
+
+
+/* ------------------------------
+   COEURS FLOTTANTS
+------------------------------ */
+
+.coeurs {
+    position: fixed;
+    inset: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+
+    z-index: 1;
+}
+
+.coeurs span {
+    position: absolute;
+    bottom: -50px;
+
+    color: rgba(255, 190, 210, 0.35);
+
+    font-size: 20px;
+
+    animation: flottement 12s linear infinite;
+}
+
+/* Position et taille de chaque coeur */
+
+.coeurs span:nth-child(1) {
+    left: 5%;
+    animation-delay: 0s;
+}
+
+.coeurs span:nth-child(2) {
+    left: 15%;
+    font-size: 30px;
+    animation-delay: 3s;
+}
+
+.coeurs span:nth-child(3) {
+    left: 25%;
+    font-size: 15px;
+    animation-delay: 6s;
+}
+
+.coeurs span:nth-child(4) {
+    left: 35%;
+    animation-delay: 2s;
+}
+
+.coeurs span:nth-child(5) {
+    left: 45%;
+    font-size: 35px;
+    animation-delay: 5s;
+}
+
+.coeurs span:nth-child(6) {
+    left: 55%;
+    animation-delay: 1s;
+}
+
+.coeurs span:nth-child(7) {
+    left: 65%;
+    font-size: 25px;
+    animation-delay: 7s;
+}
+
+.coeurs span:nth-child(8) {
+    left: 75%;
+    animation-delay: 4s;
+}
+
+.coeurs span:nth-child(9) {
+    left: 85%;
+    font-size: 30px;
+    animation-delay: 8s;
+}
+
+.coeurs span:nth-child(10) {
+    left: 95%;
+    animation-delay: 2s;
+}
+
+.coeurs span:nth-child(11) {
+    left: 40%;
+    font-size: 25px;
+    animation-delay: 9s;
+}
+
+.coeurs span:nth-child(12) {
+    left: 90%;
+    animation-delay: 6s;
+}
+
+
+/* Animation des coeurs */
+
+@keyframes flottement {
+
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    90% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(360deg);
+        opacity: 0;
+    }
+
+}
+
+
+/* ------------------------------
+   VERSION TELEPHONE
+------------------------------ */
+
+@media (max-width: 600px) {
+
+    .accueil {
+        padding: 40px 20px;
+    }
+
+    .message {
+        font-size: 15px;
+    }
+
+    .bouton {
+        padding: 14px 20px;
+        font-size: 12px;
+    }
+
+    .sous-titre {
+        letter-spacing: 2px;
+    }
+
+}
+
+
+/* Respect des préférences de mouvement */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+
+}

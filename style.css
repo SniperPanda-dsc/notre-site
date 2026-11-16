@@ -1,0 +1,845 @@
+
+/* =========================================================
+   1. BASE DU SITE
+========================================================= */
+
+/* Variables : pour modifier facilement les couleurs du site */
+
+:root {
+    --rose-clair: #f8e6ed;
+    --rose: #e9b6c9;
+    --rose-fonce: #c87598;
+
+    --violet-clair: #e9def5;
+    --violet: #a78acb;
+    --violet-fonce: #684b91;
+
+    --bordeaux: #642d47;
+    --texte: #553747;
+    --blanc: #fffafd;
+
+    --ombre: 0 10px 30px rgba(75, 30, 55, 0.12);
+    --arrondi: 22px;
+}
+
+
+/* Réinitialisation générale */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 115px;
+}
+
+body {
+    font-family: 'Poppins', 'Segoe UI', sans-serif;
+    color: var(--texte);
+
+    background:
+        radial-gradient(circle at 10% 10%, #f5dce8 0, transparent 35%),
+        radial-gradient(circle at 90% 80%, #e7d8f3 0, transparent 35%),
+        #f8edf2;
+
+    min-height: 100vh;
+    padding-top: 95px;
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   2. BANDEAU DE NAVIGATION
+========================================================= */
+
+.bandeau {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+
+    padding: 15px 5%;
+
+    background: rgba(255, 250, 253, 0.94);
+    backdrop-filter: blur(12px);
+
+    border-bottom: 1px solid rgba(200, 117, 152, 0.2);
+
+    box-shadow: 0 5px 25px rgba(80, 30, 55, 0.08);
+}
+
+
+/* Menu déroulant */
+
+.navigation select {
+    max-width: 100%;
+
+    padding: 12px 18px;
+
+    background: var(--rose-clair);
+    color: var(--bordeaux);
+
+    border: 1px solid var(--rose);
+    border-radius: 12px;
+
+    font-family: inherit;
+    font-size: 14px;
+
+    cursor: pointer;
+    outline: none;
+
+    transition: 0.3s;
+}
+
+.navigation select:hover {
+    background: #f3d6e2;
+    box-shadow: 0 4px 12px rgba(200, 117, 152, 0.2);
+}
+
+
+/* Lecteur musical */
+
+.lecteur {
+    display: flex;
+    align-items: center;
+}
+
+#boutonMusique {
+    padding: 12px 20px;
+
+    background: linear-gradient(135deg, #e9b6c9, #d68eaa);
+    color: white;
+
+    border: none;
+    border-radius: 30px;
+
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#boutonMusique:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(200, 117, 152, 0.3);
+}
+
+
+/* =========================================================
+   3. INTRODUCTION / HERO
+========================================================= */
+
+.hero {
+    position: relative;
+
+    min-height: 420px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+
+    margin: 25px auto 55px;
+    padding: 65px 25px;
+
+    width: 92%;
+    max-width: 1200px;
+
+    background: linear-gradient(
+        135deg,
+        #f4d9e5,
+        #e8bdd5,
+        #d8c6eb
+    );
+
+    border-radius: 30px;
+    box-shadow: var(--ombre);
+
+    overflow: hidden;
+}
+
+.petit-titre {
+    color: var(--bordeaux);
+    font-size: 13px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    color: var(--bordeaux);
+    font-family: Georgia, serif;
+    font-size: clamp(38px, 6vw, 70px);
+    margin-bottom: 20px;
+}
+
+.hero-description {
+    max-width: 650px;
+    line-height: 1.8;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.bouton-decouvrir {
+    display: inline-block;
+
+    padding: 14px 25px;
+
+    background: var(--bordeaux);
+    color: white;
+
+    border-radius: 30px;
+    text-decoration: none;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.bouton-decouvrir:hover {
+    background: #874564;
+    transform: translateY(-3px);
+}
+
+.coeur-decoration {
+    position: absolute;
+    bottom: 15px;
+    right: 35px;
+
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 70px;
+}
+
+
+/* =========================================================
+   4. STRUCTURE COMMUNE DES SECTIONS
+========================================================= */
+
+.section {
+    width: 92%;
+    max-width: 1200px;
+
+    margin: 45px auto;
+    padding: 55px 45px;
+
+    border-radius: var(--arrondi);
+    box-shadow: var(--ombre);
+}
+
+
+/* En-tête de chaque section */
+
+.section-entete {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.numero-section {
+    display: inline-block;
+
+    margin-bottom: 12px;
+
+    color: var(--bordeaux);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.section-entete h2 {
+    color: var(--bordeaux);
+    font-family: Georgia, serif;
+    font-size: clamp(28px, 4vw, 40px);
+    margin-bottom: 12px;
+}
+
+.section-entete p {
+    color: #805d70;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* =========================================================
+   5. SECTION LETTRE
+========================================================= */
+
+.lettre {
+    background: linear-gradient(135deg, #e9def5, #d5c2eb);
+}
+
+.lettre-contenu {
+    max-width: 850px;
+
+    margin: auto;
+    padding: 35px;
+
+    background: rgba(255, 250, 253, 0.8);
+
+    border-radius: 18px;
+    box-shadow: 0 5px 20px rgba(80, 50, 100, 0.08);
+}
+
+.lettre-contenu p {
+    line-height: 2;
+    font-size: 15px;
+    margin-bottom: 20px;
+    white-space: pre-line;
+}
+
+.texte-a-remplacer {
+    color: #76546c;
+}
+
+.signature {
+    text-align: right;
+    color: var(--violet-fonce);
+    font-family: Georgia, serif;
+    font-style: italic;
+}
+
+
+/* =========================================================
+   6. ALBUM PHOTO
+========================================================= */
+
+.photo {
+    background: linear-gradient(135deg, #f8dfe9, #edc2d5);
+}
+
+
+/* Grille des photos */
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 28px;
+}
+
+
+/* Cartes Polaroid */
+
+.photo-card {
+    min-width: 0;
+
+    padding: 13px 13px 20px;
+
+    background: var(--blanc);
+    color: var(--bordeaux);
+
+    border: none;
+    border-radius: 7px;
+
+    text-align: center;
+    font-family: inherit;
+
+    cursor: pointer;
+
+    box-shadow: 0 7px 18px rgba(90, 35, 60, 0.13);
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+.photo-card:hover {
+    transform: translateY(-8px) rotate(-1deg);
+
+    box-shadow:
+        0 15px 28px rgba(90, 35, 60, 0.2),
+        0 0 15px rgba(255, 255, 255, 0.6);
+}
+
+.photo-card:focus-visible {
+    outline: 3px solid var(--bordeaux);
+    outline-offset: 4px;
+}
+
+
+/* Cadre contenant les images */
+
+.photo-placeholder {
+    width: 100%;
+    height: 210px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+
+    background: #f2dce7;
+    border-radius: 3px;
+}
+
+
+/* Images : jamais déformées */
+
+.photo-placeholder img {
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    display: block;
+}
+
+
+/* Emplacements sans photo */
+
+.photo-vide {
+    flex-direction: column;
+    gap: 12px;
+
+    background: linear-gradient(145deg, #f5dce7, #e9bfd3);
+    color: #93617a;
+}
+
+.photo-vide span {
+    font-size: 48px;
+}
+
+.photo-vide p {
+    padding: 0 12px;
+    font-size: 12px;
+}
+
+
+/* Légendes des photos */
+
+.photo-caption {
+    padding-top: 15px;
+}
+
+.photo-caption h3 {
+    font-family: Georgia, serif;
+    font-size: 17px;
+    margin-bottom: 7px;
+}
+
+.photo-caption p {
+    color: #956278;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+
+/* =========================================================
+   7. FENÊTRE DES PHOTOS
+========================================================= */
+
+#photo-dialog {
+    position: fixed;
+
+    width: min(430px, calc(100% - 35px));
+    max-width: 430px;
+
+    margin: auto;
+    padding: 40px 30px;
+
+    background: var(--blanc);
+    color: var(--bordeaux);
+
+    border: 1px solid #f1d1df;
+    border-radius: 22px;
+
+    text-align: center;
+
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25);
+}
+
+#photo-dialog::backdrop {
+    background: rgba(40, 15, 30, 0.65);
+    backdrop-filter: blur(5px);
+}
+
+.dialog-heart {
+    display: block;
+    color: var(--rose-fonce);
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+#photo-dialog h2 {
+    font-family: Georgia, serif;
+    margin-bottom: 15px;
+}
+
+#photo-dialog p {
+    line-height: 1.8;
+    font-size: 14px;
+}
+
+.close-dialog {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+
+    width: 35px;
+    height: 35px;
+
+    background: var(--rose-clair);
+    color: var(--bordeaux);
+
+    border: none;
+    border-radius: 50%;
+
+    font-size: 23px;
+    cursor: pointer;
+}
+
+.close-dialog:hover {
+    background: var(--rose);
+}
+
+
+/* =========================================================
+   8. SECTION POÈMES ET TEXTES
+========================================================= */
+
+.poemes {
+    background: linear-gradient(135deg, #f8d9e9, #edb5d3);
+}
+
+.textes-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+
+/* Cartes contenant les textes */
+
+.texte-card {
+    padding: 28px;
+
+    background: rgba(255, 250, 253, 0.85);
+
+    border-radius: 17px;
+    box-shadow: 0 5px 18px rgba(90, 35, 60, 0.09);
+
+    transition: transform 0.3s;
+}
+
+.texte-card:hover {
+    transform: translateY(-4px);
+}
+
+.texte-type {
+    display: inline-block;
+
+    margin-bottom: 15px;
+
+    color: var(--rose-fonce);
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.texte-card h3 {
+    color: var(--bordeaux);
+    font-family: Georgia, serif;
+    font-size: 21px;
+    margin-bottom: 18px;
+}
+
+.texte-corps {
+    color: #76546c;
+    font-size: 14px;
+    line-height: 1.9;
+
+    white-space: pre-line;
+}
+
+
+/* =========================================================
+   9. SECTION 30 RAISONS
+========================================================= */
+
+.raisons {
+    background: linear-gradient(135deg, #e7dcf5, #cbb8e7);
+}
+
+.raisons-contenu {
+    max-width: 850px;
+    margin: auto;
+}
+
+.liste-raisons {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 13px 25px;
+
+    list-style: none;
+    counter-reset: raison;
+}
+
+.liste-raisons li {
+    position: relative;
+
+    min-width: 0;
+    padding: 16px 18px 16px 48px;
+
+    background: rgba(255, 250, 253, 0.8);
+
+    border-radius: 12px;
+
+    color: var(--bordeaux);
+    font-size: 13px;
+    line-height: 1.6;
+
+    counter-increment: raison;
+
+    transition: transform 0.2s;
+}
+
+.liste-raisons li::before {
+    content: counter(raison, decimal-leading-zero);
+
+    position: absolute;
+    left: 14px;
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    color: var(--violet-fonce);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.liste-raisons li:hover {
+    transform: translateX(4px);
+    background: white;
+}
+
+
+/* =========================================================
+   10. SECTION NOTRE FUTUR
+========================================================= */
+
+.notre-futur {
+    background: linear-gradient(135deg, #f8dfe9, #e9bfd3);
+}
+
+.futur-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+}
+
+
+/* Cartes du futur */
+
+.futur-card {
+    padding: 30px 23px;
+
+    background: rgba(255, 250, 253, 0.85);
+
+    border-radius: 17px;
+    text-align: center;
+
+    box-shadow: 0 5px 18px rgba(90, 35, 60, 0.09);
+
+    transition: transform 0.3s;
+}
+
+.futur-card:hover {
+    transform: translateY(-6px);
+}
+
+.futur-icone {
+    display: block;
+
+    color: var(--rose-fonce);
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+.futur-card h3 {
+    color: var(--bordeaux);
+    font-family: Georgia, serif;
+    font-size: 20px;
+
+    margin-bottom: 15px;
+}
+
+.futur-card p {
+    color: #76546c;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.futur-conclusion {
+    max-width: 750px;
+
+    margin: 40px auto 0;
+    padding: 25px;
+
+    text-align: center;
+
+    border-top: 1px solid rgba(100, 45, 71, 0.2);
+}
+
+.futur-conclusion p {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.futur-conclusion span {
+    display: block;
+    margin-top: 12px;
+    color: var(--rose-fonce);
+    font-size: 25px;
+}
+
+
+/* =========================================================
+   11. PIED DE PAGE
+========================================================= */
+
+.footer {
+    margin-top: 60px;
+    padding: 35px 20px;
+
+    background: linear-gradient(135deg, #5c2c46, #874564);
+
+    color: #fff2f7;
+    text-align: center;
+}
+
+.footer p {
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+.footer p + p {
+    margin-top: 8px;
+    font-family: Georgia, serif;
+    font-style: italic;
+}
+
+
+/* =========================================================
+   12. RESPONSIVE : TABLETTES
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .section {
+        padding: 40px 28px;
+    }
+
+    .photo-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .futur-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .futur-card {
+        padding: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   13. RESPONSIVE : TÉLÉPHONES
+========================================================= */
+
+@media (max-width: 550px) {
+
+    body {
+        padding-top: 120px;
+    }
+
+    .bandeau {
+        padding: 12px 15px;
+        gap: 10px;
+    }
+
+    .navigation select {
+        max-width: 165px;
+        padding: 10px;
+        font-size: 11px;
+    }
+
+    #boutonMusique {
+        padding: 10px 12px;
+        font-size: 11px;
+    }
+
+    .hero {
+        min-height: 350px;
+        padding: 45px 20px;
+        margin-top: 15px;
+    }
+
+    .hero-description {
+        font-size: 14px;
+    }
+
+    .section {
+        width: 94%;
+        padding: 35px 20px;
+        margin: 30px auto;
+    }
+
+    .section-entete {
+        margin-bottom: 28px;
+    }
+
+    .photo-grid,
+    .textes-grid,
+    .liste-raisons {
+        grid-template-columns: 1fr;
+    }
+
+    .photo-placeholder {
+        height: 220px;
+    }
+
+    .lettre-contenu {
+        padding: 23px;
+    }
+
+    .lettre-contenu p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* =========================================================
+   14. ACCESSIBILITÉ : LIMITER LES ANIMATIONS
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+
+}
